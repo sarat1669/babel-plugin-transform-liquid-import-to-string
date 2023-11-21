@@ -1,2 +1,2 @@
 
-import html from '../code.html';
+import liquid from '../code.liquid';

@@ -1,2 +1,2 @@
-const html = "<p>some parragraph</p>";
-export { html };
+const liquid = "<p>some parragraph</p>";
+export { liquid };

@@ -2,11 +2,11 @@ import path from 'path';
 
 import pluginTester from 'babel-plugin-tester'
 
-import transformHtmlImportToString from '..'
+import transformLiquidImportToString from '..'
 
 pluginTester({
-  plugin: transformHtmlImportToString,
-  pluginName: 'transform-html-import-to-string',
+  plugin: transformLiquidImportToString,
+  pluginName: 'transform-liquid-import-to-string',
   fixtures: path.join(__dirname, '__fixtures__'),
   tests: {
     /* your test objects */

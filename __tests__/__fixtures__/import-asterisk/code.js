@@ -1,2 +1,2 @@
 
-import * as html from '../code.html';
+import * as liquid from '../code.liquid';

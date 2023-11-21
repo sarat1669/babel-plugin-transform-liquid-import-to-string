@@ -1,31 +1,33 @@
 {
-  "name": "babel-plugin-transform-html-import-to-string",
+  "name": "babel-plugin-transform-liquid-import-to-string",
   "version": "2.0.0",
-  "description": "Turn HTML imports into strings",
+  "description": "Turn liquid imports into strings",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib --copy-files",
     "test": "jest"
   },
   "jest": {
-    "testPathIgnorePatterns": ["__tests__/__fixtures__"]
+    "testPathIgnorePatterns": [
+      "__tests__/__fixtures__"
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yeiniel/babel-plugin-transform-html-import-to-string.git"
+    "url": "git+https://github.com/sarat1669/babel-plugin-transform-liquid-import-to-string.git"
   },
   "keywords": [
     "babel-plugin",
-    "html",
+    "liquid",
     "import",
     "string"
   ],
   "author": "Yeiniel Suarez Sosa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yeiniel/babel-plugin-transform-html-import-to-string/issues"
+    "url": "https://github.com/sarat1669/babel-plugin-transform-liquid-import-to-string/issues"
   },
-  "homepage": "https://github.com/yeiniel/babel-plugin-transform-html-import-to-string#readme",
+  "homepage": "https://github.com/sarat1669/babel-plugin-transform-liquid-import-to-string#readme",
   "devDependencies": {
     "@babel/cli": "^7.13.16",
     "babel-plugin-tester": "^10.0.0",

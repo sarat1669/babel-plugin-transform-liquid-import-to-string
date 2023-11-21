@@ -1,1 +1,1 @@
-const html = "<p>some parragraph</p>";
+const liquid = "<p>some parragraph</p>";

@@ -9,42 +9,42 @@ export default function ({ types: t }) {
     return {
         visitor: {
             ExportDeclaration: {
-                exit: function(path, state) {
+                exit: function (path, state) {
                     const node = path.node;
-                    
-                    if (node.source && endsWith(node.source.value, '.html')) {
+
+                    if (node.source && endsWith(node.source.value, '.liquid')) {
                         const dir = p.dirname(p.resolve(state.file.opts.filename));
                         const absolutePath = p.resolve(dir, node.source.value);
 
-                        const html = fs.readFileSync(absolutePath, "utf8");
+                        const liquid = fs.readFileSync(absolutePath, "utf8");
 
                         path.replaceWithMultiple([
                             t.variableDeclaration("const", [
                                 t.variableDeclarator(
                                     t.identifier(node.specifiers[0].exported.name),
-                                    t.stringLiteral(html))]),
+                                    t.stringLiteral(liquid))]),
                             t.exportNamedDeclaration(null, [
                                 t.exportSpecifier(
-                                    t.identifier(node.specifiers[0].exported.name), 
+                                    t.identifier(node.specifiers[0].exported.name),
                                     t.identifier(node.specifiers[0].exported.name))])
                         ]);
                     }
                 }
             },
             ImportDeclaration: {
-                exit: function(path, state) {
+                exit: function (path, state) {
                     const node = path.node;
 
-                    if (endsWith(node.source.value, '.html')) {
+                    if (endsWith(node.source.value, '.liquid')) {
                         const dir = p.dirname(p.resolve(state.file.opts.filename));
                         const absolutePath = p.resolve(dir, node.source.value);
 
-                        const html = fs.readFileSync(absolutePath, "utf8");
+                        const liquid = fs.readFileSync(absolutePath, "utf8");
 
                         path.replaceWith(t.variableDeclaration("const", [
                             t.variableDeclarator(
                                 t.identifier(node.specifiers[0].local.name),
-                                t.stringLiteral(html))]));
+                                t.stringLiteral(liquid))]));
                     }
                 }
             }

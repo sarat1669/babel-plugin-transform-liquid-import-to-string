@@ -1,26 +1,26 @@
-# babel-plugin-transform-html-import-to-string
-[![Build Status](https://travis-ci.com/yeiniel/babel-plugin-transform-html-import-to-string.svg?branch=master)](https://travis-ci.com/yeiniel/babel-plugin-transform-html-import-to-string)
+# babel-plugin-transform-liquid-import-to-string
+[![Build Status](https://travis-ci.com/yeiniel/babel-plugin-transform-liquid-import-to-string.svg?branch=master)](https://travis-ci.com/yeiniel/babel-plugin-transform-liquid-import-to-string)
 
-Turn HTML imports (and export from) into strings.
+Turn liquid imports (and export from) into strings.
 
 ## Example
 
-Given the following _example.html_.
+Given the following _example.liquid_.
 
-```html
-<h1>Hello</h1>
+```liquid
+<h1>Hello {{ user.name }}</h1>
 ```
 
 #### in
 
 ```js
-import html from './example.html';
+import liquid from './example.liquid';
 ```
 
 #### out
 
 ```js
-const html = '<h1>Hello</h1>';
+const liquid = '<h1>Hello {{ user.name }}</h1>';
 ```
 
 and if using export
@@ -28,21 +28,21 @@ and if using export
 #### in
 
 ```js
-export * as html from './example.html';
+export * as liquid from './example.liquid';
 ```
 
 #### out
 
 ```js
-const html = "<h1>Hello</h1>";
-export { html };
+const liquid = "<h1>Hello {{ user.name }}</h1>";
+export { liquid };
 ```
 
 
 ## Installation
 
 ```sh
-$ npm install babel-plugin-transform-html-import-to-string
+$ npm install babel-plugin-transform-liquid-import-to-string
 ```
 
 ## Usage
@@ -53,20 +53,20 @@ $ npm install babel-plugin-transform-html-import-to-string
 
 ```json
 {
-  "plugins": ["transform-html-import-to-string"]
+  "plugins": ["transform-liquid-import-to-string"]
 }
 ```
 
 ### Via CLI
 
 ```sh
-$ babel --plugins transform-html-import-to-string script.js
+$ babel --plugins transform-liquid-import-to-string script.js
 ```
 
 ### Via Node API
 
 ```javascript
 require("babel-core").transform("code", {
-  plugins: ["transform-html-import-to-string"]
+  plugins: ["transform-liquid-import-to-string"]
 });
 ```
