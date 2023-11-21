@@ -11,10 +11,10 @@ export default function ({ types: t }) {
             ExportDeclaration: {
                 exit: function (path, state) {
                     const node = path.node;
-
-                    if (node.source && endsWith(node.source.value, '.liquid')) {
+                    const source = node.source?.value?.split('?')[0]
+                    if (node.source && endsWith(source, '.liquid')) {
                         const dir = p.dirname(p.resolve(state.file.opts.filename));
-                        const absolutePath = p.resolve(dir, node.source.value);
+                        const absolutePath = p.resolve(dir, source);
 
                         const liquid = fs.readFileSync(absolutePath, "utf8");
 
@@ -34,10 +34,10 @@ export default function ({ types: t }) {
             ImportDeclaration: {
                 exit: function (path, state) {
                     const node = path.node;
-
-                    if (endsWith(node.source.value, '.liquid')) {
+                    const source = node.source?.value?.split('?')[0]
+                    if (endsWith(source, '.liquid')) {
                         const dir = p.dirname(p.resolve(state.file.opts.filename));
-                        const absolutePath = p.resolve(dir, node.source.value);
+                        const absolutePath = p.resolve(dir, source);
 
                         const liquid = fs.readFileSync(absolutePath, "utf8");
 
