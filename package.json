@@ -22,7 +22,7 @@
     "import",
     "string"
   ],
-  "author": "Yeiniel Suarez Sosa",
+  "author": "Sarat Chandra Balla",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sarat1669/babel-plugin-transform-liquid-import-to-string/issues"

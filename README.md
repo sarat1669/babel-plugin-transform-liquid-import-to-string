@@ -1,5 +1,4 @@
 # babel-plugin-transform-liquid-import-to-string
-[![Build Status](https://travis-ci.com/yeiniel/babel-plugin-transform-liquid-import-to-string.svg?branch=master)](https://travis-ci.com/yeiniel/babel-plugin-transform-liquid-import-to-string)
 
 Turn liquid imports (and export from) into strings.
 
@@ -23,7 +22,7 @@ import liquid from './example.liquid';
 const liquid = '<h1>Hello {{ user.name }}</h1>';
 ```
 
-and if using export
+if using export
 
 #### in
 
@@ -37,6 +36,22 @@ export * as liquid from './example.liquid';
 const liquid = "<h1>Hello {{ user.name }}</h1>";
 export { liquid };
 ```
+
+and if using vite style qualifiers
+
+#### in
+
+```js
+export * as liquid from './example.liquid?raw';
+```
+
+#### out
+
+```js
+const liquid = "<h1>Hello {{ user.name }}</h1>";
+export { liquid };
+```
+
 
 
 ## Installation
